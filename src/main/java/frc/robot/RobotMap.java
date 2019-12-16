@@ -24,12 +24,21 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static int RIGHT_MOTOR_PWM_PORT = 0;
-  public static int LEFT_MOTOR_PWM_PORT = 1;
+  //Motors
+  public static final int RIGHT_MOTOR_TALON = 1;
+  public static final int LEFT_MOTOR_TALON = 2;
 
+  //Encoders
+  public static final int[] leftEncoderPorts = {0, 1};
+  public static final int[] rightEncoderPorts = {2, 3};
+
+  //Procedure constants
   public static double MAX_SPEED = 0.75;
+  public static double DEFAULT_SPEED = 0.5;
+  public static int DISTANCE_TO_DRIVE = 2;
+  public static double CURRENT_SPEED = 0.0;
   
-  public static int PLAYSTATION_PORT = 0;
-
-  public static double JOYSTICK_DEADBAND = 0.05;
+  //Controller constants
+  public static final int PLAYSTATION_PORT = 0;
+  public static final double JOYSTICK_DEADBAND = 0.05;
 }

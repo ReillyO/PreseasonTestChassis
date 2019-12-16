@@ -8,6 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.AutomaticDrive;
+import frc.robot.commands.TeleopDrive;
+import frc.robot.subsystems.DriveSubsystem;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,7 +26,8 @@ public class OI {
   // number it is.
 
   public Joystick controller = new Joystick(RobotMap.PLAYSTATION_PORT);
-  
+  public JoystickButton circleButton = new JoystickButton(controller, 1);
+
   // Button button = new JoystickButton(stick, buttonNumber);
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -39,6 +44,15 @@ public class OI {
   public double getPlaystationRight(){
     return controller.getRawAxis(3);
   }
+
+  /*public void refreshSpeed(){
+    circleButton.whileActive(new AutomaticDrive());
+  }*/
+
+  public boolean getButtonStatus(){
+    return controller.getRawButton(8);
+  }
+
   // Start the command when the button is pressed and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());

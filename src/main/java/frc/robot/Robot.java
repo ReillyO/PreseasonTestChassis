@@ -10,9 +10,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.TeleopDrive;
+import frc.robot.commands.AutomaticDrive;
 import frc.robot.subsystems.DriveSubsystem;
 
 /**
@@ -35,7 +37,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     OI = new OI();
-    m_chooser.setDefaultOption("Default Auto", new TeleopDrive());
+    m_chooser.setDefaultOption("Default Auto", new AutomaticDrive());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
@@ -59,6 +61,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+    //SmartDashboard.putBoolean("Tab3", true);
+    //Shuffleboard.
   }
 
   @Override
@@ -119,6 +123,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    //if(OI.getButtonStatus()) m_chooser.setDefaultOption("Default auto", new TeleopDrive());
   }
 
   /**
